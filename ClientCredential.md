@@ -16,7 +16,10 @@ This flow does not suits for Web client, or mobile interaction as those sentitiv
 
 ## Flow Diagram 
 
-![ClientFlow](https://www.plantuml.com/plantuml/png/VP4zImGn48Rx_8h1Gkx0k-iFb3jIMGaviH6BCHamk9kioSJ2N-ya-u6hu3IxONYUDoyvPSR4fU_K85zl_O21GSEp0fbRq9sdmEsmasa_LpBgHQs81opyjb1dESJalv1z372Xz4dfjmC7lwzGRjkzZVqXUcSF7Dyf_0qmYznGpYLP-iVhaB4QcqP2OYZzAoMbTtVJJOzWwADGPZXRAq9uhB6m6VlUExYPgaCccuYtQkH-29wmyn94i33NCtDfp8m8e-6u2bAwcWoqUw2hdMBhjE6wtYepKdK_hsmCND_YHC79Wtq3)
+![ClientFlow](https://www.plantuml.com/plantuml/png/TOzDImCn48Rl-HM31sdHjk2neBJav4dOYXVnC2O31lEn9XCF_dedsNQnYdFP3SdplFFk2cFc6hmQvUkC6p4oQ7XM87CBsZkAt0yhcVvp8QDUr1dnW9NVPcelXvJT5x9B4GwKFod_TgH6tAmBXj7JsgImISwQ3QTtYd_zm-mUg9IQ3VsZnT6jBJ8sOzT8J8erlCfJlRexBheLpKUbmh0tHeJms69XCTMzjt1zR0w5J2PUgedx8NX2xoI8O6OkJyoXCoT460tRyw0h2CG8mYCetRG3zANGjeAf5rnmUxjKmwIG-_dAfCYIf7OKRGt-6m00)
+
+[edit in plan UML](https://www.plantuml.com/plantuml/png/TOzDImCn48Rl-HM31sdHjk2neBJav4dOYXVnC2O31lEn9XCF_dedsNQnYdFP3SdplFFk2cFc6hmQvUkC6p4oQ7XM87CBsZkAt0yhcVvp8QDUr1dnW9NVPcelXvJT5x9B4GwKFod_TgH6tAmBXj7JsgImISwQ3QTtYd_zm-mUg9IQ3VsZnT6jBJ8sOzT8J8erlCfJlRexBheLpKUbmh0tHeJms69XCTMzjt1zR0w5J2PUgedx8NX2xoI8O6OkJyoXCoT460tRyw0h2CG8mYCetRG3zANGjeAf5rnmUxjKmwIG-_dAfCYIf7OKRGt-6m00)
+
 
 ## Explanation 
 
@@ -31,21 +34,23 @@ the request must set
 
 clientId and client secret can be passed in 2 ways either as basic Oauth2 headers , either as body 
 
-   - as Body : it must use the application/x-www-form-urlencoded Content-type , and set the payload as this content type set meaning grant_type=client_credentials&scope=openid&client_id=openapi-cicd&client_secret=262c6759-fe49-49a5-a5db-a5dfa9d15914
+   - as Body : it must use the application/x-www-form-urlencoded Content-type , and set the payload with form encoding : grant_type=client_credentials&scope=clientId&client_id=openapi-cicd&client_secret=clientSecret
 
-*curl * 
-curl --location --request POST 'https://oauth2.sample.com/oidc/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-raw 'grant_type=client_credentials&client_id=myClientId&client_secret=myClientSecret'
+**curl command**
 
-* HTTP equivalent request *
-POST https://oauth2.sample.com/oidc/token
-Header
-Content-Type: application/x-www-form-urlencoded
-grant_type: "client_credentials"
-scope: "openid"
-client_id: "myClientId"
-client_secret: "myClientSecret"
+> curl --location --request POST 'https://oauth2.sample.com/oidc/token' \
+> --header 'Content-Type: application/x-www-form-urlencoded' \
+> --data-raw 'grant_type=client_credentials&client_id=myClientId&client_secret=myClientSecret'
+
+**HTTP equivalent request**
+
+> POST https://oauth2.sample.com/oidc/token
+> Header
+> Content-Type: application/x-www-form-urlencoded
+> grant_type: "client_credentials"
+> scope: "openid"
+> client_id: "myClientId"
+> client_secret: "myClientSecret"
 
 ### 2. validating and Issuing a token 
 
@@ -55,18 +60,19 @@ The authorization server validate the matching between clientId, client secret ,
 
 The authorization server return a Json with the content at least below 
 
-
-   token_type
-         REQUIRED.  The type of the token issued as described in
-         Section 7.1.  Value is case insensitive.
-
-   expires_in
-
+```
 {
 	"access_token": "a JWTAccess Token",
 	"expires_in": 300,
 	"token_type": "Bearer",
 }
+```
+
+   - access_token : is mandatoty; it is a JWT that will needd to be presented for getting the resource
+   - token_type : describe how to use the token most of the time is will be "Bearer" (cf [RFC6750](https://datatracker.ietf.org/doc/html/rfc6750) need to be passed as the Authorization header in subsequent call.
+   - expires_in   : life time of the token express in second (not mandatory)  
+
+the access token answer is describe in the [RFC6749 section 5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)
 
 ### 4. Do API call with the access token
 
