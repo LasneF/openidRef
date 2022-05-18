@@ -12,7 +12,7 @@
 
 > he goes and presents his credential (*client_id*  , and *client_secret* can be his credut card)
 
-> The ticket provider checks if he is register, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*)
+> The ticket provider checks if he is register, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*) and for valid for a given period of time. if got expired the client has to grab back a new ticket. 
 
 > The passenger need then to provides his tickets at each gates to move on.
 
@@ -114,8 +114,11 @@ curl --location --request POST 'https://api.data.com/' \
 the ressource server need to check the presence and the validatiy of the *Access_token* presents in the *Authorization* Header 
 Basic checks are : 
 
-* issuer (field *iss* of JWT) : validate that the issuer is know from  
+* issuer (field *iss* of JWT) : the issuer must be known from the backend end , usually handle as a configuration parameter 
+* signature : once the issuer is checked, validatate that the signature is ok. For doing that use the *kid* field (public key identifier) of the JWT. Using the discovery endpoint *.well-known/openid-configuration*, leverage the *jwks_uri* that contains the JSON Web Key Set cf [RFC7517](https://datatracker.ietf.org/doc/html/rfc7517)
 * expiration (field *iss* of JWT) : validate if the provided token is still valid 
+* scope 
+* ...
 
 
 ## Flow plan UML flow Code
