@@ -45,8 +45,11 @@ clientId and client secret can be passed in 2 ways either as basic Oauth2 header
 **HTTP equivalent request**
 
 > POST https://oauth2.sample.com/oidc/token
+> 
 > Header
 > Content-Type: application/x-www-form-urlencoded
+>
+> Payload ( form encoded cf curl command ) 
 > grant_type: "client_credentials"
 > scope: "openid"
 > client_id: "myClientId"
