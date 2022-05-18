@@ -4,6 +4,26 @@
 
 ## Context , usage , purpose 
 
+### Scenario 
+
+![buildingblocks http](comicsClientCredential.png)
+
+> In this scenario, a man wants to board a plane (the **ressource owner**) . but he cannot till he has no ticket (ie *access token* ) 
+
+> he goes and presents his credential (*client_id*  , and *client_secret* can be his credut card)
+
+> The ticket provider checks if he is register, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*)
+
+> The passenger need then to provides his tickets at each gates to move on.
+
+> The ticket beeing checked , and validated by the security officer.
+
+> **Notice**  that the security officer does not know anything about the credit card. but only that the ticket is valid. the ticket is anonymous, if someone stole the ticket he can board. More about Oauth2 security threat and mitigation can be found in the [RFC 6819](https://datatracker.ietf.org/doc/html/rfc6819)
+
+
+
+### Usage 
+
 Client credential flow is designed handling machine to machine communication. 
 Client must be able have access securely to sentive information such as the clientId and client secret 
 those used to to store in a key vault. 
@@ -71,7 +91,7 @@ The authorization server return a Json with the content at least below
 }
 ```
 
-   - access_token : is mandatoty; it is a JWT that will needd to be presented for getting the resource
+   - access_token : is mandatory; it is a JWT that will needd to be presented for getting the resource
    - token_type : describe how to use the token most of the time is will be "Bearer" (cf [RFC6750](https://datatracker.ietf.org/doc/html/rfc6750) need to be passed as the Authorization header in subsequent call.
    - expires_in   : life time of the token express in second (not mandatory)  
 
@@ -79,11 +99,24 @@ the access token answer is describe in the [RFC6749 section 5.1](https://datatra
 
 ### 4. Do API call with the access token
 
-GET api.core.com/account
-Header
-Authorization: "Bearer JWT Id Token"
+Client do the call to the resource server, providing the token issued by the Authorization server, leveraging the *token_type*
 
-### 5. Result of API call
+Most of time it would be using an *Authorization* Header and a Bearer token 
+
+**curl command**
+curl --location --request POST 'https://api.data.com/' \
+--header 'Authorization: Bearer JWT token' \
+--header 'Content-Type: application/json' \
+--data-raw 'your payload'
+
+### 5. Check and Return of API call
+
+the ressource server need to check the presence and the validatiy of the *Access_token* presents in the *Authorization* Header 
+Basic checks are : 
+
+* issuer (field *iss* of JWT) : validate that the issuer is know from  
+* expiration (field *iss* of JWT) : validate if the provided token is still valid 
+
 
 ## Flow plan UML flow Code
 
