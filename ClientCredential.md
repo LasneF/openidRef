@@ -121,7 +121,7 @@ Basic checks are :
 * ...
 
 
-## Flow plan UML flow Code
+## plan UML source code of the flow
 
 ```
 @startuml
