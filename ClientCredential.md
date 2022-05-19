@@ -43,7 +43,7 @@ This flow does not suits for Web client, or mobile interaction as those sentitiv
 
 ## Explanation 
 
-### 1. request token 
+### 1. request *Access token*  
 1st request is done on the **token url**. This URL can be found as part of the OIDC discovery in the field 'token_url'. 
 the discovery URL is available for an OIDC server against this [https://authorizationServer/**.well-known/openid-configuration**]() for instance here is the google one 
 https://accounts.google.com/.well-known/openid-configuration 
