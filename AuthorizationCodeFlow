@@ -3,6 +3,17 @@
 
 ## Context , usage , purpose 
 
+
+
+> The definitive challenges of client credentials , is how do I to grant access to a 3rd party to my data owned in without sharing my password 
+
+
+> Solution is based on bi mutual trust.
+> End user must have access to the data owner (here bank)  via a secret (login / password ) 
+> 3rd party (here coolLoan ) must be registered to data owner (bank) via a client id / secret for a given scope  
+> End user knows both party bank and cool loan and allows exchange of information for a given scope for doing that he must be known (ie logged)
+
+
 ![buildingblocks http](comicsClientCredential.png)
 
 ### Scenario 
