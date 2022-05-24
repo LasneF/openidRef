@@ -3,9 +3,18 @@
 
 ## Context , usage , purpose 
 
+> The challenges , is how do I to grant access to a 3rd party to my data owned.
+
+here is one solution 
+![buildingblocks http](comicsAuthCodeFlowPirate.png)
 
 
-> The definitive challenges of client credentials , is how do I to grant access to a 3rd party to my data owned in without sharing my password 
+Here as John gives its credential to PirateLoan , PirateLoan has then full access to his bank, it s definitely not a good solution. 
+
+Topic is now to be able to share an 'scoped' access to a specified 3rd party , in a secure maner. 
+Authorization code flow solves this by introducing a trusted party . 
+
+![buildingblocks http](comicsAuthCodeFlowExplained.png)
 
 
 > Solution is based on bi mutual trust.
@@ -14,7 +23,7 @@
 > End user knows both party bank and cool loan and allows exchange of information for a given scope for doing that he must be known (ie logged)
 
 
-![buildingblocks http](comicsClientCredential.png)
+
 
 ### Scenario 
 
