@@ -47,8 +47,15 @@ In the last comics here is a mapping with the openID connect concept
 
 ### Usage 
 
+The Authorization code flow can be used as soon as there is a user interaction , it s a B2C security model . Notice than it s an Authorization pattern, not an Authentication one, nothing prescribe in the model how the end user authenticate himself to the identity provider.
 
-[RFC6749 section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
+The model can be applied as soon as a 3rd party in involved , but as well as when all is internal. Resource server beeing a core server, and the UI beeing developed internally but still with strong security model. 
+
+A point of attention is that what is running on the user agent contains the clientId but must not contains the application secret. The exchange between the client and the authorization server are done via backend call not browser. 
+
+
+
+the details of the flow is defined in the [RFC6749 section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
 
 
 ## Flow Diagram 
@@ -64,3 +71,69 @@ In the last comics here is a mapping with the openID connect concept
 
 ## plan UML source code of the flow
 
+
+
+@startuml
+
+actor "Resource Owner / John" as RO
+
+box "End User"
+participant  UA[
+    = User Agent
+    ----
+    ""John""
+]
+end box
+
+participant 3rd[
+    = 3rd party
+    ----
+    ""CoolLoan""
+]
+
+box "Authorization Server"
+participant Auth [
+    = Identity Provider
+    ----
+    ""eddy""
+]
+
+participant Token[
+    = TokenProvider
+    ----
+    ""boris""
+]
+end box
+
+
+participant R [
+    = Resource Server
+    ----
+    ""banky""
+]
+
+
+
+UA -> Auth : send authorization request (redirect, clientId, scope, state )
+Auth->Auth : 
+Auth-->UA : login screen
+RO-> UA : set credential
+UA-> Auth : push user and password 
+Auth -> UA : Consent Screen
+RO -> UA : Accept
+UA -> Auth : Response of consent 
+Auth->Auth : 
+Auth-->UA: redirect to registered callback  + code + state
+UA->3rd : call redirect URL + code + state
+3rd -> 3rd : check state
+3rd-> Token : POST (clientId , clientSecret , redirect URI, code , grant_type authorization code)
+Token--> 3rd : access_token + refresh_token
+3rd -> R : GET ressource Authorization Bearer accessToken ) 
+R->R : Validate token
+R --> 3rd  :return the resource
+3rd -> Token : Refresh access (grant_type=refresh_token&refresh_token)
+Token --> 3rd : new access_token
+
+
+
+@enduml
