@@ -10,9 +10,9 @@
 
 > In this scenario, a man wants to board a plane (the **ressource owner**) . but he cannot till he has no ticket (ie *access token* ) 
 
-> he goes and presents his credential (*client_id*  , and *client_secret* can be his credut card)
+> he goes and presents his credential (*client_id*  , and *client_secret* can be his credit card)
 
-> The ticket provider checks if he is register, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*) and for valid for a given period of time. if got expired the client has to grab back a new ticket. 
+> The ticket provider checks if he is registered, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*) and for valid for a given period of time. if got expired the client has to grab back a new ticket. 
 
 > The passenger need then to provides his tickets at each gates to move on.
 
