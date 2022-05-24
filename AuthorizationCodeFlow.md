@@ -66,13 +66,42 @@ the details of the flow is defined in the [RFC6749 section 4.4](https://datatrac
 
 ## Explanation 
 
-### 1. request token 
+### 1. request access 
+
+GET https://api.popbank.com/oauth/v2/authorization?response_type=code&client_id=myclient_id&redirect_uri=RegisterCallbackURL}&state=foobar
+
+### Setup credential 
+
+### call back 
+
+https://dev.example.com/auth/linkedin/callback?state=foobar&code=AQTQmah11lalyH65DAIivsjsAQV5P-1VTVVebnLl_SCiyMXoIjDmJ4s6rO1VBGP5Hx2542KaR_eNawkrWiCiAGxIaV-TCK-mkxDISDak08tdaBzgUYfnTJL1fHRoDWCcC2L6LXBCR_z2XHzeWSuqTkR1_jO8CeV9E_WshsJBgE-PWElyvsmfuEXLQbCLfj8CHasuLafFpGb0glO4d7M
+
+
+### request a token 
+
+POST https://www.linkedin.com/oauth/v2/accessToken HTTP/1.1
+
+Content-Type: application/x-www-form-urlencoded
+grant_type=authorization_code
+code={authorization_code_from_step2_response}
+redirect_uri={your_callback_url}
+client_id={your_client_id}
+client_secret={your_client_secret}
+
+``
+{
+  "access_token": "AQXNnd2kXITHELmWblJigbHEuoFdfRhOwGA0QNnumBI8X...",
+  "expires_in": 5184000
+}
+``
+
+### refresh token 
 
 
 ## plan UML source code of the flow
 
 
-
+``
 @startuml
 
 actor "Resource Owner / John" as RO
@@ -134,6 +163,5 @@ R --> 3rd  :return the resource
 3rd -> Token : Refresh access (grant_type=refresh_token&refresh_token)
 Token --> 3rd : new access_token
 
-
-
 @enduml
+``
