@@ -41,7 +41,7 @@ In the last comics here is a mapping with the openID connect concept
 * Boris is the *Access Token provider*. It need to know Otto. Most of the time they are part of PopBank, but can be delegated (for instance login with google)
 * During step 1, CoolLoan is providing a *state* , it s a temporary code that CoolLoan expect to get it back from the John to validate that it s a request coming from himself. this is not mandatory.
 * During step 2&3 the User agent send the state + the callback URI + clientId . CallBack URI need to be the same as the registered one (notice that several can be registered). it is a weak identification of coolLoan.
-* During step 4 Auhtorization will send back to John the state , as well with the a generated and temporary code. The code represents that the request identified by the state has been granted. the code has a short period of validatiy. 
+* During step 4 Authorization will send back to John the state , as well with the a generated and temporary code. The code represents that the request identified by the state has been granted. the code has a short period of validatiy. 
 * Another point key aspect is that it redirect to a coolLoan pre registered URL . So here there is trust between authorization server knows the user (John), and knows as well the Client (CoolLoan) , and John knows Cool Loan also. there is a trust chain. 
 * Step 5 corresponds to the redirect following the uri. Client validate that the state is the one it sent at the beginning. Client will use the code to the token provider   
 * During Step 6 , client presents his credential (clientId / Secret ) + *the code* . The code is beeing validating by the authorization server , as a previously agreed request in reply he get an access token + a refresh token
