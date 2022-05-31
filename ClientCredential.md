@@ -8,9 +8,9 @@
 
 ![buildingblocks http](comicsClientCredential.png)
 
-> In this scenario, a man wants to board a plane (the **ressource owner**) . but he cannot till he has no ticket (ie *access token* ) 
+> In this scenario, a man wants to board a plane (the **ressource owner**) . He previously register himself to the company . He still cannot board, has no ticket (ie *access token* ) 
 
-> he goes and presents his credential (*client_id*  , and *client_secret* can be his credit card)
+> he goes and presents his credential (*client_id*  , and *client_secret* can be his credit card) that validate who he is.
 
 > The ticket provider checks if he is registered, and generate him a ticket (the *access_token* ) for a given set of destinations (*scope*) and for valid for a given period of time. if got expired the client has to grab back a new ticket. 
 
@@ -19,8 +19,6 @@
 > The ticket beeing checked , and validated by the security officer.
 
 > **Notice**  that the security officer does not know anything about the credit card. but only that the ticket is valid. the ticket is anonymous, if someone stole the ticket he can board. More about Oauth2 security threat and mitigation can be found in the [RFC 6819](https://datatracker.ietf.org/doc/html/rfc6819)
-
-
 
 ### Usage 
 
