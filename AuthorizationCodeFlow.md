@@ -60,9 +60,9 @@ the details of the flow is defined in the [RFC6749 section 4.4](https://datatrac
 
 ## Flow Diagram 
 
-![ClientFlow](https://www.plantuml.com/plantuml/png/TPJHQzim4CRVzLTy-66qD6OFUmiqr2jbT1HId6OlOnHLkiQcdkH9ShlihzzPif8vetg9fBlxtVUTHQvya2uCFpiXf0hMeQZ9sy4fmlhDaCD7VBMDAI0zwhKGJ_OtYXkZiVNa2j5pSQlQNfe0RAll0hmkOn3LZao85oMlk2cA22l43q7CO9YO8JuvdH6ynHZQdnAkhUtkh4oKfASQGcDT-qU6rXfioBsUQXipaD6tceMrOOzxPrzRJUwq1MczZ_WPuy6-aCcCU7Yl_ed5-BdB6Qb6nkHX9z7_WwHvIKfuRIkKg-Ha2J-IvSotery3-O0pHxfrfC82gclPwgrUm2lR4_y46GZdOgIKgucLJkMA6opHsLrhEDqH6L6lkMEyzXJ0Tt5oicCjHodzu1iCdXoa6R-Pzs_MwKH5hh-sndCjDXbyY5HAKH_cxcho_LW0-mmrLRwdUOdi5y7oVjVwG7m59RlkIQeNu88Xcd2Hx4Vnu_DQnfHZ-RQ-Eqtbj57MbDqGqmu1le-lW2Ftwyq3plAqaGU_8NORiFYtnUqYTLXWvwG9Zs7Vq_n3nlYvYEpoq5mgHTu_XjZnWedFZdoJpbbcpNbVRXx0aUbPLJFmPvAEt8HAsiyXwd8r5dwJNQlP6XAoHkwD9PiOd45eYD69d5lc2TH9pyJ6sT7SvKpgXzbfSecZJKDlCwk2rnKPpVzGVm40)
+![ClientFlow](https://www.plantuml.com/plantuml/png/TP91Jzm-4CNl_XHFEO7Ow7_utrPYHOfGHOMqAClsKbN8sCCc8jYfxK2tdxuJEzubM-5BRC_CRzwR-Ce7wSBmsWaXLR0EHKtU3auHrk-67Fx3DzkO0jAZNWlnP7-Zk34QMq-k43qNjwhjfGd0jleXmEio1b7jo8HuKVAAcwA8i4By5CGCXeaPud-dCuAt64FxKyArjTsTbOcIz5H3QAnh_yZGMeCDkRTJRMC6ClfMix0sx77lx5khoPss8Att4JzZFDWNCfaH3v_LFx4OFtSv8zK7ANdOIVI_86bUaX9UsmhbAZbPmezaEVFjwDT0Fk3CaMuTgR20wbgsUgiNyChsn9yW0-5SZ9HoDR7IgLnnWoKwksiDfpiY8-erTupNdWBuBavETgpbAAKVV8F1auCqup_p_jqwdQZ8zTVMUAx59eCFaKefwiFSNKs-7mjWdw6coiyqBv7z8bZUxreVYA-WPDSzIVK2N3144t-Y_IX-V5xBc78itzPtfwcSDigQiXjYsY70z_4LSEH-lNd0MPusyk0tn6u35XzRt2vIXmLsJfhm6FOzNSv-P8oVYyWk3ysbKkJzOuWTBvZuxCWtwPnbrfptzUO179cULJK3Vo7fo4sef1sYBbTZtNVPjPgT8H5hvDPOieV16OI6c9p0kMCUG9taJ6YSVV0sKygsvz8ddpWQDVG-Col45Hazl7P_0G00)
 
-[edit in plan UML](https://www.plantuml.com/plantuml/uml/TPJHQzim4CRVzLTy-66qD6OFUmiqr2jbT1HId6OlOnHLkiQcdkH9ShlihzzPif8vetg9fBlxtVUTHQvya2uCFpiXf0hMeQZ9sy4fmlhDaCD7VBMDAI0zwhKGJ_OtYXkZiVNa2j5pSQlQNfe0RAll0hmkOn3LZao85oMlk2cA22l43q7CO9YO8JuvdH6ynHZQdnAkhUtkh4oKfASQGcDT-qU6rXfioBsUQXipaD6tceMrOOzxPrzRJUwq1MczZ_WPuy6-aCcCU7Yl_ed5-BdB6Qb6nkHX9z7_WwHvIKfuRIkKg-Ha2J-IvSotery3-O0pHxfrfC82gclPwgrUm2lR4_y46GZdOgIKgucLJkMA6opHsLrhEDqH6L6lkMEyzXJ0Tt5oicCjHodzu1iCdXoa6R-Pzs_MwKH5hh-sndCjDXbyY5HAKH_cxcho_LW0-mmrLRwdUOdi5y7oVjVwG7m59RlkIQeNu88Xcd2Hx4Vnu_DQnfHZ-RQ-Eqtbj57MbDqGqmu1le-lW2Ftwyq3plAqaGU_8NORiFYtnUqYTLXWvwG9Zs7Vq_n3nlYvYEpoq5mgHTu_XjZnWedFZdoJpbbcpNbVRXx0aUbPLJFmPvAEt8HAsiyXwd8r5dwJNQlP6XAoHkwD9PiOd45eYD69d5lc2TH9pyJ6sT7SvKpgXzbfSecZJKDlCwk2rnKPpVzGVm40)
+[edit in plan UML](https://www.plantuml.com/plantuml/uml/TP91Jzm-4CNl_XHFEO7Ow7_utrPYHOfGHOMqAClsKbN8sCCc8jYfxK2tdxuJEzubM-5BRC_CRzwR-Ce7wSBmsWaXLR0EHKtU3auHrk-67Fx3DzkO0jAZNWlnP7-Zk34QMq-k43qNjwhjfGd0jleXmEio1b7jo8HuKVAAcwA8i4By5CGCXeaPud-dCuAt64FxKyArjTsTbOcIz5H3QAnh_yZGMeCDkRTJRMC6ClfMix0sx77lx5khoPss8Att4JzZFDWNCfaH3v_LFx4OFtSv8zK7ANdOIVI_86bUaX9UsmhbAZbPmezaEVFjwDT0Fk3CaMuTgR20wbgsUgiNyChsn9yW0-5SZ9HoDR7IgLnnWoKwksiDfpiY8-erTupNdWBuBavETgpbAAKVV8F1auCqup_p_jqwdQZ8zTVMUAx59eCFaKefwiFSNKs-7mjWdw6coiyqBv7z8bZUxreVYA-WPDSzIVK2N3144t-Y_IX-V5xBc78itzPtfwcSDigQiXjYsY70z_4LSEH-lNd0MPusyk0tn6u35XzRt2vIXmLsJfhm6FOzNSv-P8oVYyWk3ysbKkJzOuWTBvZuxCWtwPnbrfptzUO179cULJK3Vo7fo4sef1sYBbTZtNVPjPgT8H5hvDPOieV16OI6c9p0kMCUG9taJ6YSVV0sKygsvz8ddpWQDVG-Col45Hazl7P_0G00)
 
 ## Explanation 
 
@@ -153,7 +153,8 @@ the reply is a new access token, and the refresh token , notice than the expirat
 ## plan UML source code of the flow
 
 
-``
+
+```
 @startuml
 
 actor "Resource Owner / John" as RO
@@ -209,11 +210,12 @@ UA->3rd : call redirect URL + code + state
 3rd -> 3rd : check state
 3rd-> Token : POST (clientId , clientSecret , redirect URI, code , grant_type authorization code)
 Token--> 3rd : access_token + refresh_token
-3rd -> R : GET ressource Authorization Bearer accessToken ) 
+3rd -> R : GET ressource Authorization Bearer accessToken 
 R->R : Validate token
 R --> 3rd  :return the resource
 3rd -> Token : Refresh access (grant_type=refresh_token  + refresh_token)
 Token --> 3rd : new access_token
 
 @enduml
-``
+
+```
