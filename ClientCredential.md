@@ -104,10 +104,10 @@ Client do the call to the resource server, providing the token issued by the Aut
 Most of time it would be using an *Authorization* Header and a Bearer token 
 
 **curl command**
-curl --location --request POST 'https://api.data.com/' \
---header 'Authorization: Bearer JWT token' \
---header 'Content-Type: application/json' \
---data-raw 'your payload'
+> curl --location --request POST 'https://api.data.com/' \
+> --header 'Authorization: Bearer JWT token' \
+> --header 'Content-Type: application/json' \
+> --data-raw 'your payload'
 
 ### 5. Check and Return of API call
 
