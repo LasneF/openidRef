@@ -117,15 +117,38 @@ client_secret=myClientSecret
 * client_id / client_secret : it identifies the clients (as same as in the client credential flow) 
 * redirect_uri : has to be the same as the one provided during the generation of the code .
 
-``
-{
-  "access_token": "AQXNnd2kXITHELmWblJigbHEuoFdfRhOwGA0QNnumBI8X...",
-  "expires_in": 5184000
-}
-``
+the reply would have the following form : 
+
+
+> {
+>  "access_token": "AQXNnd2kXITHELmWblJigbHEuoFdfRhOwGA0QNnumBI8X...",
+>  "expires_in": 300
+>  "refresh_token": ""AQWAft_WjYZKwuWX..."
+>  "refresh_token_expires_in": 525600
+> }
+
+* access_token : represents the ticket that you need to show at each request in the authorization header
+* expires_in : represents in seconds ,  when the access token will expire . After the access token won't be valid 
+* refresh token : a special token to be able to get a new access token 
+* refresh_token_expires_in : represents in seconds when the refresh token will expire. After this delay a full re authentication will be required. Notice that this period should be longer than the access token expiration date. 
+
 
 ### refresh token 
 
+POST https://www.linkedin.com/oauth/v2/accessToken
+
+Content-Type: application/x-www-form-urlencoded
+grant_type=refresh_token
+&refresh_token=AQQOMeCIQMa6-zjU-oooo
+
+
+the reply is a new access token, and the refresh token , notice than the expiration date is smaller 
+> {
+>  "access_token": "Newer...",
+>  "expires_in": 300
+>  "refresh_token": ""AQWAft_WjYZKwuWX..."
+>  "refresh_token_expires_in": 525305
+> }
 
 ## plan UML source code of the flow
 
@@ -189,7 +212,7 @@ Token--> 3rd : access_token + refresh_token
 3rd -> R : GET ressource Authorization Bearer accessToken ) 
 R->R : Validate token
 R --> 3rd  :return the resource
-3rd -> Token : Refresh access (grant_type=refresh_token&refresh_token)
+3rd -> Token : Refresh access (grant_type=refresh_token  + refresh_token)
 Token --> 3rd : new access_token
 
 @enduml
