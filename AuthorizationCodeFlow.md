@@ -15,7 +15,7 @@ here is one solution
 
 Here as John gives its credential to PirateLoan , PirateLoan has then full access to his bank, it s definitely not a good solution. 
 
-Topic is now to be able to share an 'scoped' access to a specified 3rd party , in a secure maner. 
+Topic is now to be able to share an 'scoped' access to a specified 3rd party , in a secure way. 
 Authorization code flow solves this by introducing a trust and authorization party. 
 
 ![buildingblocks http](comicsAuthCodeFlowExplained.png)
