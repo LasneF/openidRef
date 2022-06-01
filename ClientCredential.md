@@ -109,7 +109,7 @@ Most of time it would be using an *Authorization* Header and a Bearer token
 
 ### 5. Check and Return of API call
 
-the ressource server need to check the presence and the validatiy of the *Access_token* presents in the *Authorization* Header 
+the ressource server need to check the presence and the validity of the *Access_token* presents in the *Authorization* Header 
 Basic checks are : 
 
 * issuer (field *iss* of JWT) : the issuer must be known from the backend end , usually handle as a configuration parameter 
