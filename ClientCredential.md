@@ -23,12 +23,12 @@
 ### Usage 
 
 Client credential flow is designed handling machine to machine communication. 
-Client must be able have access securely to sentive information such as the clientId and client secret 
+Client must be able have access securely to sensitive information such as the clientId and client secret 
 those used to to store in a key vault. 
 
 Client Credential flow is describe in this [RFC6749 section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4)
 
-This flow does not suits for Web client, or mobile interaction as those sentitive credentials can be stolen. 
+This flow does not suits for Web client, or mobile interaction as those sensitive credentials can be stolen. 
 
 
 
@@ -89,7 +89,7 @@ The authorization server return a Json with the content at least below
 }
 ```
 
-   - access_token : is mandatory; it is a JWT that will needd to be presented for getting the resource
+   - access_token : is mandatory; it is a JWT that will need to be presented for getting the resource
    - token_type : describe how to use the token most of the time is will be "Bearer" (cf [RFC6750](https://datatracker.ietf.org/doc/html/rfc6750) need to be passed as the Authorization header in subsequent call.
    - expires_in   : life time of the token express in second (not mandatory)  
 
@@ -136,7 +136,7 @@ participant Oauth [
 ]
 
 participant R [
-    = Ressurce Server
+    = Resource Server
     ----
     ""api.data.com""
 ]
