@@ -7,12 +7,14 @@
 
 ![buildingblocks http](comicsDeviceCodeFlow.png)
 
+in this scenario a user wants a no input device (here the YouTube application) to access to John profile. As the profile 
+
 ### Usage 
 
 Device code flow is used when it is required to have a end user authentication / authorization , but the device cannot perform it. Instead the device will delegate this authentication able to handle end user interaction.
 With Device Flow, end users can authorize browserless or input constrained devices to access APIs
 
-Typicale exemple is smartTv or Apple TV , IoT device such as watch , or printer. 
+Typical exemple is smartTv application, IoT device such as watch , or printer. This protocole is also the one used by Azure CLI. 
 
 https://datatracker.ietf.org/doc/html/rfc8628
 
