@@ -3,11 +3,17 @@
 
 ## Context , usage , purpose 
 
+
 ### Scenario 
+
+> The challenges , is how do I to grant access to a application running on a device; knowing that this device do not provide smart user interface.
+
+here is a typical scenario : 
 
 ![buildingblocks http](comicsDeviceCodeFlow.png)
 
-in this scenario a user wants a no input device (here the YouTube application) to access to John profile. As the profile 
+An application Youtube will run on a device , a TV set. Youtube application need to access to your youtube profile online.
+The way it s done is that the TV will display an authentication code , so that user can go on the web enter it , and then depending cookies and so on, would need to authenticate and grant consent for the application. In mean time the application will pool the token provider to get if the end user has acknowledge or not. 
 
 ### Usage 
 
@@ -16,7 +22,7 @@ With Device Flow, end users can authorize browserless or input constrained devic
 
 Typical exemple is smartTv application, IoT device such as watch , or printer. This protocole is also the one used by Azure CLI. 
 
-https://datatracker.ietf.org/doc/html/rfc8628
+
 
 
 ## Flow Diagram 
@@ -26,6 +32,8 @@ https://datatracker.ietf.org/doc/html/rfc8628
 [edit in plan UML](https://www.plantuml.com/plantuml/uml/XL8zRzim4DtvAnuqnQYD3jq2DAYGPaXRG85Q3qLH10nvjWdBf4fIZjrVtnCfoxOoL1F9Un_ldVqfHEbZjsk4a2ewZwAcu3gl2DMh9O_t-E8sje0Cg2iXNjm1nOFLM0RoXMYPR9HffOt0ilmbmD_7D4Iv9XlJmuA_T2YA95Q8tu9OWyN4bSG7hqyIbSLdsXj5KuMVhelT2q6sRMEKZCPbmHojxEB6UVCtlUCx-VqqPe_0oULHSqOJZtZoRcyq-Kit5hrY_d1RiWCpNzwoBffTa-lHSrnmJZVjTnpw1V9z_P3BrTNYZhU3MxJaLsu7QI5LNrBqpukx78ZdDVtfA4GefmatgZ7Sy55ZZg1SIpEHSGjcPBqRT6prtCFdq6dbmuN3cTMmukVEc_aiUp6rhfYfJMWRUOInA-TtUUCtenXc40nZyB84ezSEqU5mMDRV89Obg-IVuZIPkg6LQu98c4LM6ItJxAn-2-v8_boaDy3PO6MQ9WtlqunBNEohTQu15u3Ruiro7hpdIKjM6xkUP95XctZAsS3-a5OdGpuFDQvJC4X3UT8zG3O9Ft2JyYZyr1Ulleh_1XrZIgKeX0ny1qyhJs6JhbcZPiozv2MychYvGekQRRD82J_yC_y1)
 
 ## Explanation 
+
+The device code flow is standardize with the [RFC8628](https://datatracker.ietf.org/doc/html/rfc8628)
 
 ### 1. request a Code 
 
