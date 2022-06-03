@@ -21,6 +21,10 @@ https://datatracker.ietf.org/doc/html/rfc8628
 
 ## Flow Diagram 
 
+https://www.plantuml.com/plantuml/png/XL8zRzim4DtvAnuqnQYD3jq2DAYGPaXRG85Q3qLH10nvjWdBf4fIZjrVtnCfoxOoL1F9Un_ldVqfHEbZjsk4a2ewZwAcu3gl2DMh9O_t-E8sje0Cg2iXNjm1nOFLM0RoXMYPR9HffOt0ilmbmD_7D4Iv9XlJmuA_T2YA95Q8tu9OWyN4bSG7hqyIbSLdsXj5KuMVhelT2q6sRMEKZCPbmHojxEB6UVCtlUCx-VqqPe_0oULHSqOJZtZoRcyq-Kit5hrY_d1RiWCpNzwoBffTa-lHSrnmJZVjTnpw1V9z_P3BrTNYZhU3MxJaLsu7QI5LNrBqpukx78ZdDVtfA4GefmatgZ7Sy55ZZg1SIpEHSGjcPBqRT6prtCFdq6dbmuN3cTMmukVEc_aiUp6rhfYfJMWRUOInA-TtUUCtenXc40nZyB84ezSEqU5mMDRV89Obg-IVuZIPkg6LQu98c4LM6ItJxAn-2-v8_boaDy3PO6MQ9WtlqunBNEohTQu15u3Ruiro7hpdIKjM6xkUP95XctZAsS3-a5OdGpuFDQvJC4X3UT8zG3O9Ft2JyYZyr1Ulleh_1XrZIgKeX0ny1qyhJs6JhbcZPiozv2MychYvGekQRRD82J_yC_y1
+
+[edit in plan UML](https://www.plantuml.com/plantuml/uml/XL8zRzim4DtvAnuqnQYD3jq2DAYGPaXRG85Q3qLH10nvjWdBf4fIZjrVtnCfoxOoL1F9Un_ldVqfHEbZjsk4a2ewZwAcu3gl2DMh9O_t-E8sje0Cg2iXNjm1nOFLM0RoXMYPR9HffOt0ilmbmD_7D4Iv9XlJmuA_T2YA95Q8tu9OWyN4bSG7hqyIbSLdsXj5KuMVhelT2q6sRMEKZCPbmHojxEB6UVCtlUCx-VqqPe_0oULHSqOJZtZoRcyq-Kit5hrY_d1RiWCpNzwoBffTa-lHSrnmJZVjTnpw1V9z_P3BrTNYZhU3MxJaLsu7QI5LNrBqpukx78ZdDVtfA4GefmatgZ7Sy55ZZg1SIpEHSGjcPBqRT6prtCFdq6dbmuN3cTMmukVEc_aiUp6rhfYfJMWRUOInA-TtUUCtenXc40nZyB84ezSEqU5mMDRV89Obg-IVuZIPkg6LQu98c4LM6ItJxAn-2-v8_boaDy3PO6MQ9WtlqunBNEohTQu15u3Ruiro7hpdIKjM6xkUP95XctZAsS3-a5OdGpuFDQvJC4X3UT8zG3O9Ft2JyYZyr1Ulleh_1XrZIgKeX0ny1qyhJs6JhbcZPiozv2MychYvGekQRRD82J_yC_y1)
+
 ## Explanation 
 
 ### 1. request a Code 
@@ -126,22 +130,22 @@ participant  UA[
 end box
 
 participant 3rd[
-    = Device
+    = On Device
     ----
-    ""3rd party App""
+    ""Youtube application""
 ]
 
 box "Authorization Server"
 participant Auth [
     = Identity Provider
     ----
-    ""eddy""
+  
 ]
 
 participant Token[
     = TokenProvider
     ----
-    ""boris""
+
 ]
 end box
 
@@ -149,22 +153,26 @@ end box
 participant R [
     = Resource Server
     ----
-    ""banky""
+    ""youtube services""
 ]
 
 RO->3rd : perfom an action
 3rd -> Token : Request code (clientId , scope)
-Token --> 3rd : ( user_code, device_code, verification uri,)
+Token --> 3rd : ( user_code, device_code, verification_uri,)
 3rd --> RO : display information (user_code ) 
 RO -> UA  : go to xxURL 
-UA--> Auth : go to zz
+UA--> Auth : go to verification_uri page 
 Auth --> UA : display page
 RO -> UA : enter user_code 
 UA -> Auth : fill userCode 
 3rd-> Token : pool for ok 
 Token --> 3rd : Error pending
-
+Auth --> UA : ask for consent and Authentication
+UA -> Auth : send credential and consent
+Auth--> UA : Page OK
 
 3rd-> Token : pool for ok 
 Token-> 3rd : accessToken + refreshToken
+3rd->R : Call with accessToken 
+R-->3rd : A resource
 ```
