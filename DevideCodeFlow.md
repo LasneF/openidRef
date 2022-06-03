@@ -23,8 +23,6 @@ With Device Flow, end users can authorize browserless or input constrained devic
 Typical exemple is smartTv application, IoT device such as watch , or printer. This protocole is also the one used by Azure CLI. 
 
 
-
-
 ## Flow Diagram 
 
 ![ClientFlow](https://www.plantuml.com/plantuml/png/XL8zRzim4DtvAnuqnQYD3jq2DAYGPaXRG85Q3qLH10nvjWdBf4fIZjrVtnCfoxOoL1F9Un_ldVqfHEbZjsk4a2ewZwAcu3gl2DMh9O_t-E8sje0Cg2iXNjm1nOFLM0RoXMYPR9HffOt0ilmbmD_7D4Iv9XlJmuA_T2YA95Q8tu9OWyN4bSG7hqyIbSLdsXj5KuMVhelT2q6sRMEKZCPbmHojxEB6UVCtlUCx-VqqPe_0oULHSqOJZtZoRcyq-Kit5hrY_d1RiWCpNzwoBffTa-lHSrnmJZVjTnpw1V9z_P3BrTNYZhU3MxJaLsu7QI5LNrBqpukx78ZdDVtfA4GefmatgZ7Sy55ZZg1SIpEHSGjcPBqRT6prtCFdq6dbmuN3cTMmukVEc_aiUp6rhfYfJMWRUOInA-TtUUCtenXc40nZyB84ezSEqU5mMDRV89Obg-IVuZIPkg6LQu98c4LM6ItJxAn-2-v8_boaDy3PO6MQ9WtlqunBNEohTQu15u3Ruiro7hpdIKjM6xkUP95XctZAsS3-a5OdGpuFDQvJC4X3UT8zG3O9Ft2JyYZyr1Ulleh_1XrZIgKeX0ny1qyhJs6JhbcZPiozv2MychYvGekQRRD82J_yC_y1)
@@ -33,9 +31,15 @@ Typical exemple is smartTv application, IoT device such as watch , or printer. T
 
 ## Explanation 
 
-The device code flow is standardize with the [RFC8628](https://datatracker.ietf.org/doc/html/rfc8628)
+The device code flow is standardized with the [RFC8628](https://datatracker.ietf.org/doc/html/rfc8628).
 
 ### 1. request a Code 
+
+at a first step the user, initiate via the device a request to authenticate the app running on the device  . 
+
+the request requires  : 
+* client_id : this will identifies the application running on the device, as several application can run on the same device (netflix and youtube on a smart Tv)
+* 
 
 curl -X POST https://acme-demo.auth0.com/oauth/device/code \
      -H "Content-Type: application/x-www-form-urlencoded" \
