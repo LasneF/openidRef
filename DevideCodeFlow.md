@@ -5,6 +5,7 @@
 
 ### Scenario 
 
+![buildingblocks http](comicsDeviceCodeFlow.png)
 
 ### Usage 
 
@@ -82,11 +83,16 @@ POST /token HTTP/1.1
 
 
 
+Here is a result when the authorization process is not finished 
+```
 {
   "error": "authorization_pending",
   "error_description": "User has yet to authorize device code."
 }
 
+```
+
+```
 {
     "token_type": "Bearer",
     "scope": "User.Read profile openid email",
@@ -95,7 +101,7 @@ POST /token HTTP/1.1
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD..."
 }
-     
+```     
   
 
 
