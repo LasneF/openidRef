@@ -147,23 +147,27 @@ the reply would have the following form :
 
 ### refresh token 
 
-POST https://www.linkedin.com/oauth/v2/accessToken
 
-Content-Type: application/x-www-form-urlencoded
-grant_type=refresh_token
-&refresh_token=AQMeCIQMa6-zjU-oooo
+https://api.popbank.com/oauth/v2/ 
+
+>POST https://www.linkedin.com/oauth/v2/accessToken
+>
+> Content-Type: application/x-www-form-urlencoded
+> grant_type=refresh_token
+> &refresh_token=AQMeCIQMa6-zjU-oooo
 
 
-the reply is a new access token, and the refresh token , notice than the expiration date is smaller 
-> {
->  "access_token": "Newer...",
->  "expires_in": 300
->  "refresh_token": ""AQWAft_WjYZKwuWX..."
->  "refresh_token_expires_in": 525305
-> }
+the reply is a new access token, and the refresh token , notice than the expiration date is smaller
+```
+ {
+  "access_token": "Newer...",
+  "expires_in": 300
+  "refresh_token": ""AQWAft_WjYZKwuWX..."
+  "refresh_token_expires_in": 525305
+ }
+```
 
 ## plan UML source code of the flow
-
 
 ```
 @startuml
