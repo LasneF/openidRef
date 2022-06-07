@@ -107,11 +107,11 @@ the field error contains an error code as defines in the section [4.1.2.1 of OAu
 
 ### 4. request a token 
 
-once the Client receive the callback , it can get an access token.
+once the Client receive the callback , it can ask an access token.
 
 **HTTP equivalent request**
 
-POST https://www.linkedin.com/oauth/v2/accessToken HTTP/1.1
+POST https://api.popbank.com/oauth/v2/accessToken HTTP/1.1
 
 Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
@@ -128,14 +128,15 @@ client_secret=myClientSecret
 
 the reply would have the following form : 
 
-
-> {
->  "access_token": "AQXNnd2kXiTjELmWblJiHbHEuoFdfRhOwGA0QNumBI8X...",
->  
->  "expires_in": 300
->  "refresh_token": ""AQWAft_WjYZKwuWX..."
->  "refresh_token_expires_in": 525600
-> }
+```
+ {
+  "access_token": "AQXNnd2kXiTjELmWblJiHbHEuoFdfRhOwGA0QNumBI8X...",
+  
+  "expires_in": 300
+  "refresh_token": ""AQWAft_WjYZKwuWX..."
+  "refresh_token_expires_in": 525600
+ }
+```
 
 * access_token : represents the ticket that you need to show at each request in the authorization header
 * id_token : it s an addition to Oauth2, it represents user identity and grant cf [OpenIdConnect] (https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
@@ -162,7 +163,6 @@ the reply is a new access token, and the refresh token , notice than the expirat
 > }
 
 ## plan UML source code of the flow
-
 
 
 ```
