@@ -34,9 +34,9 @@ This flow does not suits for Web client, or mobile interaction as those sensitiv
 
 ## Flow Diagram 
 
-![ClientFlow](https://www.plantuml.com/plantuml/png/TO_DIWGn383lVOhWGNRHdGMF2yekFNaIkk95FCGsOB4_OvjwyEbjEyxeAkRIXFJxakmpO-BYdHZhQxKTCJ18U1HGungainIu5viQFJch8Px42N67XLyMwb2BcEm7ieq1ZfJUAVrsn4PS3Hdzw6ZGqM-ZDNhByPN2NxzQt8foB4dJFreSxM2GiHcx1Wl7KFmp9I4tDr-Bxa3HMw7CSD2QSeRxDXPMqxct1YvXIY6JJiHhCN4_10_eh44cM9ZpcJbsPaOg8s5tEkW2F352MnI4R5e5VIaqtmUkkFrT2pKfMdzkwHYO0eiz1LEy-mG0)
+![ClientFlow](https://www.plantuml.com/plantuml/png/TLB1RjGm43tZhnZbW5hHR2guHGArv09SYh8BFI2q6knXroAnW-smBOX_Psm7QtSHFiHZpxmtyvvpumEwC8-3c7ZNKaze0dJmIG2lbz0Dcan8XvfN2YfUuhCuGTpX7FO5TSi7w_HF3DeQM9FxGUwSmqR4yvN7SHfe9UtOMAra4-mtCl_ozuMx9szd9-a_j3ZfbSA0aJ7HS1jhvl4BbtRrgsNGbcc-p-G3t4f9tiCcjeKBcUHktoguWYNs91s5Is5i871wjm_Y_Trw0_iG9jysJMmOzPv946y8LUnfJM2QUlCuKGiuJOEMoPRceJuS3lLNwyPwTWCPQHKfiNF8JKEghfOHf2F5kyR1Ly9BctByDLfLOgdHYk_6n_nU7yhzCZxd479O2J8AeXgHlJWovICEciqZo3HimzCbX7K2_uKmfeFsrBndC590YER3xBNP0SAx-ysnSR_4ameJPflVcUTAHST4rHLNqSEa7VcjZZKlhg_ZNL9U5UdG4oguTpfGWYH6TYxNl2Pqv592gxDkmC9oA_6xk06YYrRq06rcBZ_QHK9VYhxaYqyf0wBFXd2cW6H-Tt73_FCu_040)
 
-[edit in plan UML](https://www.plantuml.com/plantuml/uml/TO_DIWGn383lVOhWGNRHdGMF2yekFNaIkk95FCGsOB4_OvjwyEbjEyxeAkRIXFJxakmpO-BYdHZhQxKTCJ18U1HGungainIu5viQFJch8Px42N67XLyMwb2BcEm7ieq1ZfJUAVrsn4PS3Hdzw6ZGqM-ZDNhByPN2NxzQt8foB4dJFreSxM2GiHcx1Wl7KFmp9I4tDr-Bxa3HMw7CSD2QSeRxDXPMqxct1YvXIY6JJiHhCN4_10_eh44cM9ZpcJbsPaOg8s5tEkW2F352MnI4R5e5VIaqtmUkkFrT2pKfMdzkwHYO0eiz1LEy-mG0)
+[edit in plan UML](https://www.plantuml.com/plantuml/uml/TLB1RjGm43tZhnZbW5hHR2guHGArv09SYh8BFI2q6knXroAnW-smBOX_Psm7QtSHFiHZpxmtyvvpumEwC8-3c7ZNKaze0dJmIG2lbz0Dcan8XvfN2YfUuhCuGTpX7FO5TSi7w_HF3DeQM9FxGUwSmqR4yvN7SHfe9UtOMAra4-mtCl_ozuMx9szd9-a_j3ZfbSA0aJ7HS1jhvl4BbtRrgsNGbcc-p-G3t4f9tiCcjeKBcUHktoguWYNs91s5Is5i871wjm_Y_Trw0_iG9jysJMmOzPv946y8LUnfJM2QUlCuKGiuJOEMoPRceJuS3lLNwyPwTWCPQHKfiNF8JKEghfOHf2F5kyR1Ly9BctByDLfLOgdHYk_6n_nU7yhzCZxd479O2J8AeXgHlJWovICEciqZo3HimzCbX7K2_uKmfeFsrBndC590YER3xBNP0SAx-ysnSR_4ameJPflVcUTAHST4rHLNqSEa7VcjZZKlhg_ZNL9U5UdG4oguTpfGWYH6TYxNl2Pqv592gxDkmC9oA_6xk06YYrRq06rcBZ_QHK9VYhxaYqyf0wBFXd2cW6H-Tt73_FCu_040)
 
 
 ## Explanation 
@@ -141,10 +141,29 @@ participant R [
     ""api.data.com""
 ]
 autonumber
-C-> Oauth : Request Access Token (ClientId , Client secret)
+C-> Oauth : Request Access Token (client_Id , client_secret)
+note right
+POST https://api.Auth.com/oidc/token
+Header
+Content-Type: application/x-www-form-urlencoded
+grant_type: "client_credentials"
+scope: "openid"
+client_id: "myClientUd"
+client_secret: "a secret"
+end note
 Oauth -> Oauth : Validate ClientId & Client Secret
-Oauth --> C : Access Token + meta data 
+Oauth --> C : Access Token + meta data using a JWT
+note right
+{
+	"access_token": "a JWTAccess Token",
+	"expires_in": 300,
+	"scope": "openid Read Write",
+	"token_type": "Bearer",
+	"id_token": "a JWT Id Token"
+}
+end note 
 C -> R  : Read Resource (token)
+R -> R  : Validate token 
 R--> C  : Resource content
 @enduml
 
