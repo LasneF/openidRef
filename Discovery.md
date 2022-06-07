@@ -39,3 +39,6 @@ https://accounts.google.com/.well-known/openid-configuration
     grant_types_supported: [ "authorization_code", "refresh_token", "urn:ietf:params:oauth:grant-type:device_code", "urn:ietf:params:oauth:grant-type:jwt-bearer"]
 }
 ```
+
+
+for more information  (https://openid.net/specs/openid-connect-discovery-1_0.html) 
